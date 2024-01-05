@@ -12,12 +12,14 @@ class InfoPage extends StatefulWidget {
 
 class _InfoPageState extends State<InfoPage> {
   TextEditingController firstName = TextEditingController();
-  @override
-  void dispose() {
-    firstName.dispose();
-    
-    super.dispose();
-  }
+  TextEditingController lastName = TextEditingController();
+
+  // @override
+  // void dispose() {
+  //   firstName.dispose();
+  //   lastName.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -60,30 +62,30 @@ class _InfoPageState extends State<InfoPage> {
                                 BorderRadius.all(Radius.circular(12.0)))),
                   ),
                 ),
-                // SizedBox(
-                //   width: 500,
-                //   height: 60,
-                //   child: TextField(
-                //     controller: lastName,
-                //     decoration: InputDecoration(
-                //         enabledBorder: OutlineInputBorder(
-                //             borderRadius: BorderRadius.circular(20.0),
-                //             borderSide: const BorderSide(
-                //               width: 3,
-                //               color: AppColors.accent,
-                //             )),
-                //         prefixIcon: const Icon(Icons.person),
-                //         label: const Text(
-                //           'Last Name',
-                //           style: TextStyle(
-                //             fontSize: 30.0,
-                //           ),
-                //         ),
-                //         border: const OutlineInputBorder(
-                //             borderRadius:
-                //                 BorderRadius.all(Radius.circular(12.0)))),
-                //   ),
-                // ),
+                SizedBox(
+                  width: 500,
+                  height: 60,
+                  child: TextField(
+                    controller: lastName,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: const BorderSide(
+                              width: 3,
+                              color: AppColors.accent,
+                            )),
+                        prefixIcon: const Icon(Icons.person),
+                        label: const Text(
+                          'Last Name',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                          ),
+                        ),
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12.0)))),
+                  ),
+                ),
                 // SizedBox(
                 //   width: 500,
                 //   height: 60,
@@ -140,7 +142,14 @@ class _InfoPageState extends State<InfoPage> {
             right: 10,
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Begin(name: firstName.text)));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Begin(
+                        firstName: firstName.text,
+                        lastName: lastName.text,
+                      ),
+                    ),
+                  );
                 },
                 child: const Text('Next')),
           ),

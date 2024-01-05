@@ -9,22 +9,27 @@ class Start extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Column(
-        children: [
-          Row(
-            children: [
-              const Text('Quiz'),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const InfoPage()));
-                  },
-                  child: const Text('Start'))
-            ],
-          )
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Quiz',
+              style: TextStyle(
+                fontSize: 120,
+                color: AppColors.secondary,
+              ),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const InfoPage()));
+                },
+                child: const Text('Start'))
+          ],
+        ),
       ),
     );
   }
