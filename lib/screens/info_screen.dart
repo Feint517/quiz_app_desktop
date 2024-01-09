@@ -11,8 +11,15 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPageState extends State<InfoPage> {
-  TextEditingController firstName = TextEditingController();
-  TextEditingController lastName = TextEditingController();
+  final firstName = TextEditingController();
+  final lastName = TextEditingController();
+  final email = TextEditingController();
+  final id = TextEditingController();
+
+  bool _validateFirstName = false;
+  bool _validateLastName = false;
+  bool _validateEmail = false;
+  bool _validateID = false;
 
   // @override
   // void dispose() {
@@ -40,100 +47,174 @@ class _InfoPageState extends State<InfoPage> {
                 ),
                 SizedBox(
                   width: 500,
-                  height: 60,
+                  height: 85,
                   child: TextField(
                     controller: firstName,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: const BorderSide(
-                              width: 3,
-                              color: AppColors.accent,
-                            )),
-                        prefixIcon: const Icon(Icons.person),
-                        label: const Text(
-                          'First Name',
-                          style: TextStyle(
-                            fontSize: 30.0,
-                          ),
+                      errorText:
+                          _validateFirstName ? 'Name Cant Be Empty' : null,
+                      errorStyle: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.red,
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: Colors.red,
                         ),
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12.0)))),
+                      ),
+                      iconColor: AppColors.primary,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: AppColors.accent,
+                        ),
+                      ),
+                      prefixIcon: const Icon(Icons.person),
+                      label: const Text(
+                        'First Name',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12.0),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(
                   width: 500,
-                  height: 60,
+                  height: 85,
                   child: TextField(
                     controller: lastName,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: const BorderSide(
-                              width: 3,
-                              color: AppColors.accent,
-                            )),
-                        prefixIcon: const Icon(Icons.person),
-                        label: const Text(
-                          'Last Name',
-                          style: TextStyle(
-                            fontSize: 30.0,
-                          ),
+                      errorText:
+                          _validateLastName ? 'Name Cant Be Empty' : null,
+                      errorStyle: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.red,
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: Colors.red,
                         ),
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12.0)))),
+                      ),
+                      iconColor: AppColors.primary,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: AppColors.accent,
+                        ),
+                      ),
+                      prefixIcon: const Icon(Icons.person),
+                      label: const Text(
+                        'Last Name',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12.0),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                // SizedBox(
-                //   width: 500,
-                //   height: 60,
-                //   child: TextField(
-                //     controller: email,
-                //     decoration: InputDecoration(
-                //         enabledBorder: OutlineInputBorder(
-                //             borderRadius: BorderRadius.circular(20.0),
-                //             borderSide: const BorderSide(
-                //               width: 3,
-                //               color: AppColors.accent,
-                //             )),
-                //         prefixIcon: const Icon(Icons.mail),
-                //         label: const Text(
-                //           'Email',
-                //           style: TextStyle(
-                //             fontSize: 30.0,
-                //           ),
-                //         ),
-                //         border: const OutlineInputBorder(
-                //             borderRadius:
-                //                 BorderRadius.all(Radius.circular(12.0)))),
-                //   ),
-                // ),
-                // SizedBox(
-                //   width: 500,
-                //   height: 60,
-                //   child: TextField(
-                //     controller: id,
-                //     decoration: InputDecoration(
-                //         enabledBorder: OutlineInputBorder(
-                //             borderRadius: BorderRadius.circular(20.0),
-                //             borderSide: const BorderSide(
-                //               width: 3,
-                //               color: AppColors.accent,
-                //             )),
-                //         prefixIcon: const Icon(Icons.numbers),
-                //         label: const Text(
-                //           'ID',
-                //           style: TextStyle(
-                //             fontSize: 30.0,
-                //           ),
-                //         ),
-                //         border: const OutlineInputBorder(
-                //             borderRadius:
-                //                 BorderRadius.all(Radius.circular(12.0)))),
-                //   ),
-                // ),
+                SizedBox(
+                  width: 500,
+                  height: 85,
+                  child: TextField(
+                    controller: email,
+                    decoration: InputDecoration(
+                      errorText: _validateEmail ? 'Email Cant Be Empty' : null,
+                      errorStyle: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.red,
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: Colors.red,
+                        ),
+                      ),
+                      iconColor: AppColors.primary,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: AppColors.accent,
+                        ),
+                      ),
+                      prefixIcon: const Icon(Icons.mail),
+                      label: const Text(
+                        'Email',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 500,
+                  height: 85,
+                  child: TextField(
+                    controller: id,
+                    decoration: InputDecoration(
+                      errorText: _validateID ? 'ID Cant Be Empty' : null,
+                      errorStyle: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.red,
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: Colors.red,
+                        ),
+                      ),
+                      iconColor: AppColors.primary,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(
+                          width: 3,
+                          color: AppColors.accent,
+                        ),
+                      ),
+                      prefixIcon: const Icon(Icons.numbers),
+                      label: const Text(
+                        'ID',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -142,14 +223,25 @@ class _InfoPageState extends State<InfoPage> {
             right: 10,
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => Begin(
-                        firstName: firstName.text,
-                        lastName: lastName.text,
+                  setState(() {
+                    _validateFirstName = firstName.text.isEmpty;
+                    _validateLastName = lastName.text.isEmpty;
+                    _validateEmail = email.text.isEmpty;
+                    _validateID = id.text.isEmpty;
+                  });
+                  if (!_validateFirstName &&
+                      !_validateLastName &&
+                      !_validateEmail &&
+                      !_validateID) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Begin(
+                          firstName: firstName.text,
+                          lastName: lastName.text,
+                        ),
                       ),
-                    ),
-                  );
+                    );
+                  }
                 },
                 child: const Text('Next')),
           ),

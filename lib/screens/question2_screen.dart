@@ -47,7 +47,7 @@ class _Question2State extends State<Question2> {
                           ),
                         ),
                         Text(
-                          'kbvksvbdsvosdhwobvwoocsvodbihsvoihhbib',
+                          'Which of the following animals are marsupials?',
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -86,7 +86,7 @@ class _Question2State extends State<Question2> {
                                 width: 40,
                               ),
                               const Text(
-                                'jbjvdsbivsidbvdsibvsv ',
+                                'Kangaroo',
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
@@ -115,7 +115,7 @@ class _Question2State extends State<Question2> {
                                 width: 40,
                               ),
                               const Text(
-                                'jbjvdsbivsidbvdsibvsv ',
+                                'Platypus',
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
@@ -146,7 +146,7 @@ class _Question2State extends State<Question2> {
                                 width: 40,
                               ),
                               const Text(
-                                'jbjvdsbivsidbvdsibvsv ',
+                                'Koala',
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
