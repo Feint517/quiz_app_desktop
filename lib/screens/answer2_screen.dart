@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:quiz_app_desktop/screens/answer1_screen.dart';
-import 'package:quiz_app_desktop/screens/score_screen.dart';
 import 'package:quiz_app_desktop/utils/colors.dart';
 
 class Answer2 extends StatefulWidget {
