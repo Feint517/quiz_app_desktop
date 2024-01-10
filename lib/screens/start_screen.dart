@@ -18,16 +18,33 @@ class Start extends StatelessWidget {
               style: TextStyle(
                 fontSize: 120,
                 color: AppColors.secondary,
+                fontFamily: 'Cocogoose',
               ),
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const InfoPage()));
-                },
-                child: const Text('Start'))
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.button),
+              ),
+              // style: ElevatedButton.styleFrom(
+              //   backgroundColor: AppColors.button,
+              //   textStyle: const TextStyle(
+              //     color: AppColors.textWhite,
+              //   ),
+              // ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const InfoPage(),
+                  ),
+                );
+              },
+              child: const Text(
+                'Start',
+                style: TextStyle(
+                    color: AppColors.textWhite, fontWeight: FontWeight.w300),
+              ),
+            )
           ],
         ),
       ),

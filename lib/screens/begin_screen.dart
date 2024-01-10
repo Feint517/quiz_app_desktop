@@ -34,6 +34,10 @@ class Begin extends StatelessWidget {
                   height: 50,
                 ),
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(AppColors.button),
+                  ),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -42,7 +46,13 @@ class Begin extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text('Begin'),
+                  child: const Text(
+                    'Begin',
+                    style: TextStyle(
+                      color: AppColors.textWhite,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -51,6 +61,9 @@ class Begin extends StatelessWidget {
             bottom: 10,
             left: 10,
             child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.button),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -59,7 +72,13 @@ class Begin extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Back'),
+              child: const Text(
+                'Back',
+                style: TextStyle(
+                  color: AppColors.textWhite,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
             ),
           ),
         ],

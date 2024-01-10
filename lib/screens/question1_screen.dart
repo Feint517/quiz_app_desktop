@@ -24,7 +24,7 @@ class _QuestionState extends State<Question> {
           Center(
             child: Container(
               height: 550,
-              width: 1050,
+              width: 850,
               decoration: BoxDecoration(
                 color: AppColors.primary,
                 borderRadius: BorderRadius.circular(50.0),
@@ -40,13 +40,15 @@ class _QuestionState extends State<Question> {
                         Text(
                           'Question 1',
                           style: TextStyle(
-                            fontSize: 35,
+                            fontSize: 45,
+                            color: AppColors.accent,
                           ),
                         ),
                         Text(
                           'Who is the author of “The Great Gatsby”?',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 27,
+                            color: AppColors.secondary,
                           ),
                         ),
                       ],
@@ -55,7 +57,7 @@ class _QuestionState extends State<Question> {
                   Expanded(
                     flex: 4,
                     child: Container(
-                      padding: const EdgeInsets.only(left: 58),
+                      padding: const EdgeInsets.only(left: 50, right: 50),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -64,6 +66,8 @@ class _QuestionState extends State<Question> {
                               Transform.scale(
                                 scale: 2.0,
                                 child: Radio(
+                                  activeColor: AppColors.accent,
+                                  focusColor: AppColors.secondary,
                                   value: 50,
                                   groupValue: selectedOption,
                                   onChanged: (value) {
@@ -78,10 +82,24 @@ class _QuestionState extends State<Question> {
                               const SizedBox(
                                 width: 40,
                               ),
-                              const Text(
-                                'F. Scott Fitzgerald ',
-                                style: TextStyle(
-                                  fontSize: 20,
+                              Container(
+                                width: 600,
+                                padding: const EdgeInsets.only(left: 20),
+                                decoration: const BoxDecoration(
+                                  color: AppColors.secondary,
+                                  borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(30),
+                                    topRight: Radius.circular(30),
+                                    topLeft: Radius.circular(30),
+                                    bottomLeft: Radius.circular(30),
+                                  ),
+                                ),
+                                child: const Text(
+                                  'F. Scott Fitzgerald ',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    color: AppColors.textBlack,
+                                  ),
                                 ),
                               ),
                             ],
@@ -91,6 +109,8 @@ class _QuestionState extends State<Question> {
                               Transform.scale(
                                 scale: 2.0,
                                 child: Radio(
+                                  activeColor: AppColors.accent,
+                                  focusColor: AppColors.secondary,
                                   value: 2,
                                   groupValue: selectedOption,
                                   onChanged: (value) {
@@ -108,10 +128,24 @@ class _QuestionState extends State<Question> {
                               const SizedBox(
                                 width: 40,
                               ),
-                              const Text(
-                                'Ernest Hemingway',
-                                style: TextStyle(
-                                  fontSize: 20,
+                              Container(
+                                width: 600,
+                                padding: const EdgeInsets.only(left: 20),
+                                decoration: const BoxDecoration(
+                                  color: AppColors.secondary,
+                                  borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(30),
+                                    topRight: Radius.circular(30),
+                                    topLeft: Radius.circular(30),
+                                    bottomLeft: Radius.circular(30),
+                                  ),
+                                ),
+                                child: const Text(
+                                  'Ernest Hemingway',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    color: AppColors.textBlack,
+                                  ),
                                 ),
                               ),
                             ],
@@ -121,6 +155,8 @@ class _QuestionState extends State<Question> {
                               Transform.scale(
                                 scale: 2.0,
                                 child: Radio(
+                                  activeColor: AppColors.accent,
+                                  focusColor: AppColors.secondary,
                                   value: 3,
                                   groupValue: selectedOption,
                                   onChanged: (value) {
@@ -137,14 +173,59 @@ class _QuestionState extends State<Question> {
                               const SizedBox(
                                 width: 40,
                               ),
-                              const Text(
-                                'William Faulkner',
-                                style: TextStyle(
-                                  fontSize: 20,
+                              Container(
+                                width: 600,
+                                padding: const EdgeInsets.only(left: 20),
+                                decoration: const BoxDecoration(
+                                  color: AppColors.secondary,
+                                  borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(30),
+                                    topRight: Radius.circular(30),
+                                    topLeft: Radius.circular(30),
+                                    bottomLeft: Radius.circular(30),
+                                  ),
+                                ),
+                                child: const Text(
+                                  'William Faulkner',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    color: AppColors.textBlack,
+                                  ),
                                 ),
                               ),
                             ],
                           ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              const SizedBox(
+                                width: 600,
+                              ),
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      AppColors.button),
+                                ),
+                                onPressed: () {
+                                  print('grade at next = $grade');
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Question2(),
+                                      settings: RouteSettings(arguments: grade),
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  'Next',
+                                  style: TextStyle(
+                                    color: AppColors.textWhite,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -153,23 +234,23 @@ class _QuestionState extends State<Question> {
               ),
             ),
           ),
-          Positioned(
-            bottom: 10,
-            right: 10,
-            child: ElevatedButton(
-              onPressed: () {
-                print('grade at next = $grade');
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Question2(),
-                    settings: RouteSettings(arguments: grade),
-                  ),
-                );
-              },
-              child: const Text('Next'),
-            ),
-          ),
+          // Positioned(
+          //   bottom: 10,
+          //   right: 10,
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       print('grade at next = $grade');
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //           builder: (context) => const Question2(),
+          //           settings: RouteSettings(arguments: grade),
+          //         ),
+          //       );
+          //     },
+          //     child: const Text('Next'),
+          //   ),
+          // ),
         ],
       ),
     );

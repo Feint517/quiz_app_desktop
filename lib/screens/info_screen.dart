@@ -52,7 +52,7 @@ class _InfoPageState extends State<InfoPage> {
                     controller: firstName,
                     decoration: InputDecoration(
                       errorText:
-                          _validateFirstName ? 'Name Cant Be Empty' : null,
+                          _validateFirstName ? 'First Name Cant Be Empty' : null,
                       errorStyle: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.red,
@@ -72,7 +72,10 @@ class _InfoPageState extends State<InfoPage> {
                           color: AppColors.accent,
                         ),
                       ),
-                      prefixIcon: const Icon(Icons.person),
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: AppColors.primary,
+                      ),
                       label: const Text(
                         'First Name',
                         style: TextStyle(
@@ -95,7 +98,7 @@ class _InfoPageState extends State<InfoPage> {
                     controller: lastName,
                     decoration: InputDecoration(
                       errorText:
-                          _validateLastName ? 'Name Cant Be Empty' : null,
+                          _validateLastName ? 'Last Name Cant Be Empty' : null,
                       errorStyle: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.red,
@@ -115,7 +118,10 @@ class _InfoPageState extends State<InfoPage> {
                           color: AppColors.accent,
                         ),
                       ),
-                      prefixIcon: const Icon(Icons.person),
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: AppColors.primary,
+                      ),
                       label: const Text(
                         'Last Name',
                         style: TextStyle(
@@ -157,7 +163,10 @@ class _InfoPageState extends State<InfoPage> {
                           color: AppColors.accent,
                         ),
                       ),
-                      prefixIcon: const Icon(Icons.mail),
+                      prefixIcon: const Icon(
+                        Icons.mail,
+                        color: AppColors.primary,
+                      ),
                       label: const Text(
                         'Email',
                         style: TextStyle(
@@ -199,7 +208,10 @@ class _InfoPageState extends State<InfoPage> {
                           color: AppColors.accent,
                         ),
                       ),
-                      prefixIcon: const Icon(Icons.numbers),
+                      prefixIcon: const Icon(
+                        Icons.numbers,
+                        color: AppColors.primary,
+                      ),
                       label: const Text(
                         'ID',
                         style: TextStyle(
@@ -222,38 +234,58 @@ class _InfoPageState extends State<InfoPage> {
             bottom: 10,
             right: 10,
             child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    _validateFirstName = firstName.text.isEmpty;
-                    _validateLastName = lastName.text.isEmpty;
-                    _validateEmail = email.text.isEmpty;
-                    _validateID = id.text.isEmpty;
-                  });
-                  if (!_validateFirstName &&
-                      !_validateLastName &&
-                      !_validateEmail &&
-                      !_validateID) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => Begin(
-                          firstName: firstName.text,
-                          lastName: lastName.text,
-                        ),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.button),
+              ),
+              onPressed: () {
+                setState(() {
+                  _validateFirstName = firstName.text.isEmpty;
+                  _validateLastName = lastName.text.isEmpty;
+                  _validateEmail = email.text.isEmpty;
+                  _validateID = id.text.isEmpty;
+                });
+                if (!_validateFirstName &&
+                    !_validateLastName &&
+                    !_validateEmail &&
+                    !_validateID) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Begin(
+                        firstName: firstName.text,
+                        lastName: lastName.text,
                       ),
-                    );
-                  }
-                },
-                child: const Text('Next')),
+                    ),
+                  );
+                }
+              },
+              child: const Text(
+                'Next',
+                style: TextStyle(
+                  color: AppColors.textWhite,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
           ),
           Positioned(
             bottom: 10,
             left: 10,
             child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Start()));
-                },
-                child: const Text('Back')),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.button),
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Start()));
+              },
+              child: const Text(
+                'Back',
+                style: TextStyle(
+                  color: AppColors.textWhite,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
           ),
         ],
       ),
